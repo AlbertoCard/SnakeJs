@@ -6,9 +6,9 @@
     --dark-bg: #333333;
 
     --ligth-detalles: #293447;
-    --dark-detalles: #118a2f;
+    --dark-detalles: #107028;
     --ligth-tablero: #212837;
-    --dark-tablero: #107229;
+    --dark-tablero: #0d5e21;
 }
 
 *{
@@ -28,7 +28,6 @@ body{
 }
 
 .contenedor{
-    background-color: #FFF;
     height: 500px;
     width: 500px;
     border-radius: 7px;
@@ -68,6 +67,10 @@ body{
 
 body.dark-theme{
     background-color: var(--dark-bg);
+}
+
+button.dark-theme{
+    background-color: var(--dark-detalles);
 }
 
 .detalles.dark-theme{
