@@ -1,0 +1,80 @@
+:root {
+    --ligth-text: #000;
+    --dark-text: #fff;
+
+    --ligth-bg: #b0b2b3;
+    --dark-bg: #333333;
+
+    --ligth-detalles: #293447;
+    --dark-detalles: #118a2f;
+    --ligth-tablero: #212837;
+    --dark-tablero: #107229;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+
+body{
+    background-color: var(--ligth-bg);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.contenedor{
+    background-color: #FFF;
+    height: 500px;
+    width: 500px;
+    border-radius: 7px;
+    overflow: hidden;
+}
+
+.detalles{
+    background-color: var(--ligth-detalles);
+    color: var(--dark-text);
+    height: 60px;
+    padding: 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tablero{
+    background-color: var(--ligth-tablero);
+    height: 440px;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(25, 1fr);
+    grid-template-rows: repeat(25, 1fr);
+}
+
+
+/* Tema oscuro */
+
+.dark-theme-btn{
+    background-color: var(--ligth-detalles);
+    border: none;
+    height: 30px;
+    width: 30px;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+body.dark-theme{
+    background-color: var(--dark-bg);
+}
+
+.detalles.dark-theme{
+    background-color: var(--dark-detalles);
+    color: var(--dark-text);
+}
+
+.tablero.dark-theme{
+    background-color: var(--dark-tablero);
+}
