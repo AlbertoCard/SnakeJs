@@ -2,14 +2,17 @@ import darkTheme from './tema_oscuro.js';
 import generarComida from './comida.js';
 
 const $tablero = document.querySelector(".tablero");
+const $score = document.querySelector(".score");
+const $record = document.querySelector(".record");
+
+let highScore = localStorage.getItem("record") || 0;
 
 let snakeX = 5, snakeY = 12,
     comidaX = 0, comidaY = 0,
     velocidadX = 0, velocidadY = 0,
     gameOver = false;
-
+let score = 0;
 let cuerpo = [];
-
 let intervaloIniciar;
 
 [comidaX, comidaY] = generarComida();
@@ -46,6 +49,13 @@ const iniciarJuego = () => {
     if(snakeX === comidaX && snakeY === comidaY){
         [comidaX, comidaY] = generarComida();
         cuerpo.push([snakeX, snakeY]);
+        score++;
+        if(score > highScore){
+            highScore = score;
+            localStorage.setItem("record", highScore);
+            $record.innerHTML = `Record: ${highScore}`;
+        }
+        $score.innerHTML = `Score: ${score}`;
     }
 
     let htmlmarkup = `<div class="comida" style="grid-column: ${comidaX}; grid-row: ${comidaY}"></div>`;
@@ -81,7 +91,7 @@ const setgameOver = () =>{
     velocidadX = 0;
     velocidadY = 0;
     clearInterval(intervaloIniciar);
-    alert("Game Over");
+    alert(`Game Over \n Score: ${score}`);
     location.reload();
 };
 
