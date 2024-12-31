@@ -81,3 +81,13 @@ button.dark-theme{
 .tablero.dark-theme{
     background-color: var(--dark-tablero);
 }
+
+
+.comida{
+    background-color: #ff0000;
+    border-radius: 50%;
+}
+
+.snake{
+    background-color: #60bcff;
+}
