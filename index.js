@@ -17,6 +17,8 @@ let intervaloIniciar;
 
 [comidaX, comidaY] = generarComida();
 
+$record.innerHTML = `Record: ${highScore}`;
+
     
     
 document.addEventListener("keydown", (e) => {
