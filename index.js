@@ -60,16 +60,14 @@ const iniciarJuego = () => {
     snakeY += velocidadY;
 
     if(snakeX < 0 || snakeX > 25 || snakeY < 0 || snakeY > 25){
-        snakeX = 5;
-        snakeY = 12;
-        cuerpo = [];
-        velocidadX = 0;
-        velocidadY = 0;
         gameOver = true;
     }
 
     for(let i = 0; i < cuerpo.length; i++){
         htmlmarkup += `<div class="snake" style="grid-column: ${cuerpo[i][0]}; grid-row: ${cuerpo[i][1]}"></div>`;
+        if(i != 0 &&  cuerpo[0][0] === cuerpo[i][0] && cuerpo[0][1] === cuerpo[i][1]){
+            gameOver = true;
+        }
     }
 
     $tablero.innerHTML = htmlmarkup;
@@ -77,6 +75,11 @@ const iniciarJuego = () => {
 
 
 const setgameOver = () =>{
+    snakeX = 5;
+    snakeY = 12;
+    cuerpo = [];
+    velocidadX = 0;
+    velocidadY = 0;
     clearInterval(intervaloIniciar);
     alert("Game Over");
     location.reload();
